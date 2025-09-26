@@ -12,12 +12,12 @@ This repo is for **reproducibility and transparency**.
 
 ```
 scripts/                 # Core dataset creation pipeline
-  01_labels.py              # defines binary + multi-class labels
-  02_inject.py              # performs error injection
-  03_reinject.py            # second-pass injection/fixes
-  04_skim.py                # cleaning & filtering
-  05_block_evalrows.py      # prevents eval leakage
-  06_final.py               # assembles final TSVs
+  labels.py                 # compute label distributions and schema
+  inject.py                 # inject controlled errors
+  reinject.py               # retry injection for missing cases
+  skim.py                   # preview dataset (sanity check)
+  block_evalrows.py         # filter out evaluation rows
+  final.py                  # assemble final dataset TSVs
 
 extras/                  # Helper & debug scripts
   data_check.py             # sanity checks (counts, distributions)
@@ -37,38 +37,38 @@ docs/
 
 ---
 
-## 🚀 Pipeline Usage
+## 🛠️ Pipeline Usage
 
-Run the scripts in order:
+Run the scripts in **order**:
 
 1. **Define labels**
    ```bash
-   python scripts/01_labels.py
+   python scripts/labels.py
    ```
 
-2. **Inject errors**
+2. **Inject errors (first pass)**
    ```bash
-   python scripts/02_inject.py
+   python scripts/inject.py
    ```
 
-3. **Re-inject (optional second pass)**
+3. **Re-inject (fix empty rows, optional second pass)**
    ```bash
-   python scripts/03_reinject.py
+   python scripts/reinject.py
    ```
 
-4. **Clean dataset**
+4. **Preview dataset (skim head rows)**
    ```bash
-   python scripts/04_skim.py
+   python scripts/skim.py
    ```
 
-5. **Block evaluation rows**
+5. **Block evaluation rows (avoid leakage)**
    ```bash
-   python scripts/05_block_evalrows.py
+   python scripts/block_evalrows.py
    ```
 
 6. **Assemble final dataset**
    ```bash
-   python scripts/06_final.py
+   python scripts/final.py
    ```
    This produces:
    - `synced_ende_train_silver.tsv`
@@ -159,8 +159,10 @@ Each baseline script prints and saves:
 - (optional) `runs/<exp>/confusion_matrix.png`
 
 ### Tips
-- Longer sentences: bump `--max_length 384` (cost ↑). 
+- Longer sentences: bump `--max_length 384` (cost ↑).
 - Repro: always set `--seed` and `--gradient_accumulation_steps` if using small GPUs.
+
+---
 
 ## 📜 License
 This dataset and accompanying scripts are licensed under:  
@@ -174,3 +176,5 @@ Non-commercial use only, attribution required.
 ```
 Chopra, Muskaan, et al. "SynCED-EnDe: A Gold–Silver Dataset for Critical Error Detection in English→German MT." 2025.
 Hugging Face Datasets: https://huggingface.co/datasets/your-username/synced-ende
+```
+
