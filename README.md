@@ -10,12 +10,11 @@ This repo is for **reproducibility and transparency**.
 ## 📂 Repository Structure
 
 ```
-scripts/                 # Core dataset creation pipeline
-  labels.py                 # compute label distributions and schema
+scripts/                    # Core dataset creation pipeline
   inject.py                 # inject controlled errors
   reinject.py               # retry injection for missing cases
   skim.py                   # preview dataset (sanity check)
-  block_evalrows.py         # filter out evaluation rows
+  block_evalrows.py         # filter out scraped evaluation rows from train set 
   final.py                  # assemble final dataset TSVs
   data_check.py             # sanity checks (counts, distributions, label balance)
   data_scrape.py            # scrape GOV.UK + Stack Exchange
@@ -45,10 +44,10 @@ data/
 
 Run the scripts in **order**:
 
-1. **Define labels**
+1. **Scrape Data**
 
    ```bash
-   python scripts/labels.py
+   python scripts/data_scrape.py
    ```
 
 2. **Inject errors (first pass)**
