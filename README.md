@@ -75,7 +75,11 @@ Run the scripts in **order**:
    python scripts/block_evalrows.py
    ```
 
-6. **Assemble final dataset**
+6. **Judge & quantify translations (LLM-based)**
+   ```bash
+   python scripts/judge_quantify.py
+
+7. **Assemble final dataset**
 
    ```bash
    python scripts/final.py
