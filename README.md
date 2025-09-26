@@ -1,7 +1,7 @@
 # SynCED-EnDe — Pipeline, Raw Data & Scripts (GitHub Companion)
 
 This repository provides **pipeline scripts and raw/intermediate files** for building the
-[SynCED-EnDe dataset]([https://huggingface.co/datasets/moon712/SynCED_EnDe_2025]).
+[SynCED-EnDe dataset](https://huggingface.co/datasets/moon712/SynCED_EnDe_2025).
 
 The **clean, benchmark-ready release** (train silver + eval gold) is on Hugging Face.  
 This repo is for **reproducibility and transparency**.
