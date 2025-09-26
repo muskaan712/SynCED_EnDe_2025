@@ -190,6 +190,6 @@ Non-commercial use only, attribution required.\
 
 ```
 Chopra, Muskaan, et al. "SynCED-EnDe: A Gold–Silver Dataset for Critical Error Detection in English→German MT." 2025.
-Hugging Face Datasets: https://huggingface.co/datasets/your-username/synced-ende
+Hugging Face Datasets: https://huggingface.co/datasets/moon712/SynCED_EnDe_2025
 ```
 
