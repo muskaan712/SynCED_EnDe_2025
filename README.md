@@ -18,7 +18,7 @@ scripts/                 # Core dataset creation pipeline
   block_evalrows.py         # filter out evaluation rows
   final.py                  # assemble final dataset TSVs
   data_check.py             # sanity checks (counts, distributions, label balance)
-  data_scrape.py            # scrape GOV.UK + Stack Exchange (FDA removed)
+  data_scrape.py            # scrape GOV.UK + Stack Exchange
 
 data/
   train/
