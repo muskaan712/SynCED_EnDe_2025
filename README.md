@@ -30,9 +30,6 @@ data/                    # Raw & intermediate data files
   train-silver/raw/...
   eval-gold/raw/...
 
-docs/
-  annotation_protocol.pdf   # annotation guidelines
-  labels.json               # schema for labels
 ```
 
 ---
@@ -87,12 +84,6 @@ Available in `data/`:
 
 ⚠️ **Note:** These files may contain earlier/unverified labels.  
 They are **not for benchmarking** — use only for reproducing pipeline steps.
-
----
-
-## 📘 Documentation
-- `docs/annotation_protocol.pdf` → annotation guidelines  
-- `docs/labels.json` → schema for binary, multi-class, and 5-dimension ratings  
 
 ---
 
