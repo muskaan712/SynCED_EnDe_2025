@@ -11,7 +11,7 @@
 # Output: TSV/CSV with scraped content
 #
 # Note: This script is for reproducibility. Sources are all public-domain or
-#       permissively licensed. FDA scraping code has been removed.
+#       permissively licensed. 
 
 import os
 import logging
