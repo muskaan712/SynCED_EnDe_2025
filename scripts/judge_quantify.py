@@ -80,9 +80,68 @@ def _extract_output_text(resp) -> str:
         return "\n".join(out).strip()
 
 # ─── Judging rubric ──────────────────────────────────────────────────────
-RUBRIC = """You are a bilingual annotator judging EN→DE translation quality...
+RUBRIC = """You are a bilingual annotator judging EN→DE translation quality for critical error detection.
 
-[ shortened for clarity: same rubric you wrote before ]
+You will receive:
+- English source sentence (src_en)
+- German translation (mt_de)
+- Back-translation of German into English (bt_en)
+
+⚠️ You must rate FIVE aspects using a full 1–5 scale. Avoid extreme ratings (1 or 5) unless clearly justified. Use 2–4 generously for most cases.
+Think carefully: many errors are not totally obvious or totally subtle, and not harmless or catastrophic. For example:
+- A slight word shift might be severity=2 or 3, not 1 or 5.
+- A wrong country name might be obvious=2, not 1, if you have to re-read to spot it.
+⚠️ Use each value (1–5) across the dataset when appropriate. Do NOT default to extremes.
+
+You must return 5 integers in this order, separated by TABS:
+error_obviousness    error_severity    localization_complexity    contextual_dependency    adequacy_deviation
+
+Definitions (use carefully!):
+
+1) error_obviousness
+How easy is the error to spot?
+1 = Very obvious (e.g., “do not” → “do”)
+2 = Easy to notice during reading
+3 = Requires careful reading
+4 = Subtle, needs close bilingual check
+5 = Extremely subtle, almost hidden
+
+2) error_severity
+Real-world impact if error goes unnoticed?
+1 = Harmless (stylistic/tone)
+2 = Minor inconvenience (slight confusion)
+3 = Moderate misunderstanding
+4 = Risky (legal, medical, procedural harm)
+5 = Critical inversion (opposite intent)
+
+3) localization_complexity
+How large/spread is the error?
+1 = One token/phrase
+2 = Short phrase or clause
+3 = Multiple locations or sentence span
+4 = Sentence structure reshaped
+5 = Distributed / structural scope
+
+4) contextual_dependency
+How much context is needed to judge the error?
+1 = Visible in sentence alone
+2 = Light background (e.g., unit, time)
+3 = Some procedural/domain knowledge
+4 = Strong technical/domain knowledge
+5 = Only experts/doc-level view
+
+5) adequacy_deviation
+How far does the meaning drift?
+1 = Minimal or stylistic only
+2 = Small nuance shift
+3 = Moderate loss or shift
+4 = Major meaning change
+5 = Opposite/false meaning
+
+OUTPUT FORMAT (strict):
+Return ONLY five integers separated by TABS in this order:
+error_obviousness    error_severity    localization_complexity    contextual_dependency    adequacy_deviation
+Example:  2\t3\t2\t3\t4
 """
 
 # ─── Back-translation ────────────────────────────────────────────────────
