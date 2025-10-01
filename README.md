@@ -109,9 +109,8 @@ They are **not for benchmarking** — use only for reproducing pipeline steps.
 ## 📜 License
 
 This dataset and accompanying scripts are licensed under:\
-**Creative Commons Attribution-NonCommercial 4.0 (CC-BY-NC 4.0)**\
-Non-commercial use only, attribution required.\
-[https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
+**Creative Commons Attribution- 4.0 (CC-BY 4.0)**\
+Attribution required.
 
 ---
 
