@@ -117,7 +117,7 @@ Attribution required.
 ## 📖 Citation
 
 ```
-Chopra, Muskaan, et al. "SynCED-EnDe: A Gold–Silver Dataset for Critical Error Detection in English→German MT." 2025.
-Hugging Face Datasets: https://huggingface.co/datasets/moon712/SynCED_EnDe_2025
+M. Chopra, et al. "SynCED-EnDe 2025: A Synthetic and Curated English-German Dataset for Critical Error Detection in Machine Translation." 2025.
+Hugging Face Datasets: https://huggingface.co/datasets/moon712/synced-ende
 ```
 
