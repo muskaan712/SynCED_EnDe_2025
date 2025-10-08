@@ -117,7 +117,13 @@ Attribution required.
 ## 📖 Citation
 
 ```
-M. Chopra, et al. "SynCED-EnDe 2025: A Synthetic and Curated English-German Dataset for Critical Error Detection in Machine Translation." 2025.
-Hugging Face Datasets: https://huggingface.co/datasets/moon712/synced-ende
+@article{chopra2025syncedende,
+  title={SynCED-EnDe 2025: A Synthetic and Curated English - German Dataset for Critical Error Detection in Machine Translation},
+  author={Chopra, M. and others},
+  journal={Hugging Face Papers},
+  year={2025},
+  url={https://huggingface.co/papers/2510.05144}
+}
+
 ```
 
